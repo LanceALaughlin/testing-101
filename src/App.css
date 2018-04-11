@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -9,9 +7,9 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .App-title {
@@ -25,4 +23,30 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.store {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.cart {
+  width: 300px;
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkout-btn {
+  height: 40px;
+
 }

@@ -30,8 +30,9 @@ class ProductItem extends Component {
   }
 
   render() {
-    return <div>
-        <h2 className="product-title">Product</h2>
+    return <div className="product-item">
+        <h2 className="product-title">{this.props.productData.name}</h2>
+        <img src={this.props.productData.image} />
         <input 
           value={ this.state.quantity }
           className="quantity-input"
