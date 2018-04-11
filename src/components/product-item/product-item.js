@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class ProductItem extends Component {
-  state = { value: "", disabled: false };
+  state = { quantity: "", disabled: false };
 
   static defaultProps = { productData: {} }
 
@@ -10,7 +10,13 @@ class ProductItem extends Component {
     if(event.target.value > this.props.productData.available){
       disabled = true;
     }
-    this.setState({value: event.target.value, disabled})
+    this.setState({quantity: event.target.value, disabled})
+  }
+
+  handleAddToCart = () => {
+    const { productData } = this.props;
+    const { quantity } = this.state;
+    this.props.onAdd({ name: productData.name, quantity, price: productData.price })
   }
 
   maybeRenderError = () => {
@@ -27,10 +33,10 @@ class ProductItem extends Component {
     return <div>
         <h2 className="product-title">Product</h2>
         <input 
-          value={ this.state.value }
+          value={ this.state.quantity }
           className="quantity-input"
           onChange={this.handleChange} />
-        <button className="add-to-cart" disabled={this.state.disabled}>
+        <button className="add-to-cart" disabled={this.state.disabled} onClick={this.handleAddToCart}>
           Add To Cart
         </button>
         {this.maybeRenderError()}
